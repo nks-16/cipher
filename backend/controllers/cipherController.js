@@ -25,7 +25,7 @@ exports.validateCipher = async (req, res) => {
         console.log(answer);
         console.log(cipher.correctAnswer);
         if (answer !== cipher.correctAnswer) {
-            res.status(400).json({ message: "Incorrect answer!" });
+            res.status(400).json-({ message: "Incorrect answer!" });
             return;
         }
 

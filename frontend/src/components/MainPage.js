@@ -9,7 +9,7 @@ const MainPage = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [message, setMessage] = useState("");
     const [username, setUsername] = useState("");
-    const defaultEmail = "default@example.com"; // Default non-editable email
+    const defaultEmail = "Ava@promethean.org"; // Default non-editable email
 
     useEffect(() => {
         const storedUsername = localStorage.getItem("username") || "Team";
