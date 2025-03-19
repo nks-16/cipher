@@ -37,7 +37,7 @@ const ProjectC = () => {
                             }
                         } catch (error) {
                             console.error(error);
-                            setError("An error occurred. Please try again.");
+                            setError("Please try again.");
                         }
     };
 
