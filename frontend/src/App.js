@@ -95,7 +95,7 @@ Let's discuss this in our next checkpoint meeting.`,
             
 I’ve been reviewing the latest data logs, and I need your insights on the recent fluctuations in signal transmission. The patterns we’re seeing are… unusual. At first, I assumed it was an alignment issue, but after running multiple simulations, I think something else might be at play. 
 
-I heard from Sumedha last week that she was testing alternative frequency harmonics. Did she happen to share any preliminary findings with you? If so, I’d love to compare notes before we finalise next week’s report. 
+I heard from  lily  last week that she was testing alternative frequency harmonics. Did she happen to share any preliminary findings with you? If so, I’d love to compare notes before we finalise next week’s report. 
 
 Let me know when you’re free for a quick sync.`,
         },
