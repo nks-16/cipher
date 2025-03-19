@@ -7,6 +7,7 @@ const ProjectB = () => {
     const [decryptedText, setDecryptedText] = useState(""); // State for decrypted text input
     const [error, setError] = useState(""); // State for error messages
     const navigate = useNavigate();
+    const [attempts, setAttempts] = useState(0);
 
     const handleDecryptProject = () => {
         setShowModal(true); // Show the modal for decrypted text input
@@ -36,8 +37,14 @@ const ProjectB = () => {
                         setError(response?.data?.message || "Incorrect password. Try again.");
                     }
                 } catch (error) {
-                    console.error(error);
-                    setError(". Please try again.");
+                    setAttempts((prev) => prev + 1); // Correct way to update attempts
+            
+            // Check if attempts reach 5 and email ID matches a specific format
+                    if (attempts + 1 >= 5 && /^g[1-9]$|^g10$/.test(email.id)) {
+                        setError("❌ This is not the mail you are looking for!");
+                    } else {
+                        setError("⚠️ Please try again.");
+                    }
                 }
     };
 
