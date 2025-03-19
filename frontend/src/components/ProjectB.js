@@ -5,6 +5,7 @@ import { validateProject } from "../api/projectApi";
 const ProjectB = () => {
     const [showModal, setShowModal] = useState(false); // State to control modal visibility
     const [decryptedText, setDecryptedText] = useState(""); // State for decrypted text input
+    const [attempts, setAttempts] = useState(0);
     const [error, setError] = useState(""); // State for error messages
     const navigate = useNavigate();
 
@@ -36,10 +37,18 @@ const ProjectB = () => {
                         setError(response?.data?.message || "Incorrect password. Try again.");
                     }
                 } catch (error) {
-                    console.error(error);
-                    setError("An error occurred. Please try again.");
+                    setAttempts((prev) => prev + 1); // Correct way to update attempts
+                    
+                    // Check if attempts reach 5 and email ID matches a specific format
+                    if (attempts + 1 >= 5 ) {
+                        setError("❌ This is not the mail you are looking for!");
+                    } else {
+                        setError("⚠️ Please try again.");
+                    }
                 }
-    };
+                
+                setIsLoading(false);
+            };
 
     return (
         <div
