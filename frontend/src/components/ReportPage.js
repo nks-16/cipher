@@ -53,8 +53,14 @@ Format: xx.xxxx N, xx.xxxx E`
                 navigate("/thank-you");
             }
         } catch (error) {
-            console.error(error);
-            alert("An error occurred. Please try again.");
+            setAttempts((prev) => prev + 1); // Correct way to update attempts
+            
+            // Check if attempts reach 5 and email ID matches a specific format
+            if (attempts + 1 >= 5 ) {
+                setError("❌ This is not the mail you are looking for!");
+            } else {
+                setError("⚠️ Please try again.");
+            }
         }
     };
 
