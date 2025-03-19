@@ -146,11 +146,11 @@ Please confirm your preferred timing at your earliest convenience. If you requir
             cc: [],
             body: `<strong>Mo</strong>mentum is building as we appr<strong>o</strong>ach the final p<strong>h</strong>ase, but we must proceed with caution.
 Our calculations indicate <strong>m</strong>inor <strong>o</strong>ptimisations are still necessary for efficiency.
-Observing trends, we see that some factors <strong>s</strong>cale predictably, while ot<strong>h</strong>ers require careful tuning.
+Observing trends, we see that some factors s<strong>c</strong>ale predictably, while ot<strong>h</strong>ers require careful tuning.
 Having r<strong>e</strong>viewed the latest simulati<strong>o</strong>ns, I bel<strong>i</strong>eve t<strong>h</strong>e most st<strong>a</strong>ble and <strong>s</strong>trong a<strong>p</strong>proach aligns with an affine transformation—where one constant defines the entire structure.
  
 St<strong>r</strong>ategic pl<strong>a</strong>ceme<strong>n</strong>t of comp<strong>o</strong>nents is key—precision in mapping will determine success.
-Perh<strong>a</strong>ps a secondary check would ensure our <strong>p</strong>rojections remain robust, especially since the multiplier is already set to this date.
+Perh<strong>a</strong>ps a secondary check would ensure our <strong>p</strong>rojections remain robust, especially since the <i>multiplier is already set to this date.</i>
 
 Recalibrations aside, one constant <strong>h</strong>olds—our foundation is <strong>o</strong>ptimal, and <strong>p</strong>recise adjustments will only perfect it further.`,
         },

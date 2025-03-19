@@ -42,7 +42,7 @@ const ProjectB = () => {
             setAttempts((prevAttempts) => {
                 const newAttempts = prevAttempts + 1;
                 if (newAttempts >= 5) {
-                    setError("❌ This is not the mail you are looking for!");
+                    setError("❌ This is not the Project you are looking for!");
                 } else {
                     setError("⚠️ Please try again.");
                 }
