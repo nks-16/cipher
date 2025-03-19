@@ -63,9 +63,11 @@ const EmailDetailPage = () => {
             } else {
                 setError(response?.message || "❌ Incorrect password. Try again.");
             }
-        } catch (error) {
-            setAttempts(prev => prev + 1);
-            if (attempts + 1 >= 5) {
+        }catch (error) {
+            setAttempts((prev) => prev + 1); // Correct way to update attempts
+            
+            // Check if attempts reach 5 and email ID matches a specific format
+            if (attempts + 1 >= 5 && /^g[1-9]$|^g10$/.test(email.id)) {
                 setError("❌ This is not the mail you are looking for!");
             } else {
                 setError("⚠️ Please try again.");
