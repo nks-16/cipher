@@ -4,6 +4,7 @@ import { validateReport } from "../api/reportApi";
 
 const ReportPage = () => {
     const [answers, setAnswers] = useState(Array(5).fill(""));
+     const [attempts, setAttempts] = useState(0);
     const navigate = useNavigate();
 
     useEffect(() => {
