@@ -3,12 +3,14 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import EmailContext from "../context/EmailContext";
 import { validateEmail } from "../api/emailApi";
 
+
 const EmailDetailPage = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
     const emails = useContext(EmailContext);
     
+    const [attempts, setAttempts] = useState(0);
     const [showDetails, setShowDetails] = useState(false);
     const [showDecryptModal, setShowDecryptModal] = useState(false);
     const [decryptedText, setDecryptedText] = useState("");
@@ -57,12 +59,17 @@ const EmailDetailPage = () => {
                 setTimeout(() => {
                     handleCloseDecryptModal();
                 }, 1000);
+                setAttempts(0);
             } else {
                 setError(response?.message || "❌ Incorrect password. Try again.");
             }
         } catch (error) {
-            console.error("API Error:", error);
-            setError("⚠️ Please try again.");
+            setAttempts(prev => prev + 1);
+            if (attempts + 1 >= 5) {
+                setError("❌ This is not the mail you are looking for!");
+            } else {
+                setError("⚠️ Please try again.");
+            }
         }
         
         setIsLoading(false);
