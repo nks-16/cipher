@@ -18,7 +18,7 @@ exports.validateProject = async (req, res) => {
         let existingAttempt = team.projectValidated.find(q => q.questionId === questionId);
 
         if (existingAttempt && existingAttempt.validated) {
-             res.status(400).json({ message: "Already validated this project!" });
+             res.status(200).json({ message: "Already validated this project!" });
              return;
         }
 

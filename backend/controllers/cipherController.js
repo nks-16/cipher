@@ -19,7 +19,7 @@ exports.validateCipher = async (req, res) => {
         let existingAttempt = team.cipherValidated.find(q => q.questionId === questionId);
 
         if (existingAttempt && existingAttempt.validated) {
-            res.status(400).json({ message: "Already validated this cipher!" });
+            res.status(200).json({ message: "Already validated this cipher!" });
             return;
         }
         console.log(answer);

@@ -20,7 +20,7 @@ exports.validateDraft = async (req, res) => {
         if (existingAttempt && existingAttempt.validated) {
             console.log(answer);
             console.log(draft.correctAnswer);
-            res.status(400).json({ message: "Already validated this draft!" });
+            res.status(200).json({ message: "Already validated this draft!" });
             return ;
         }
 

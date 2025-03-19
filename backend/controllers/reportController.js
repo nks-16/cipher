@@ -25,7 +25,7 @@ exports.validateReport = async (req, res) => {
         let existingAttempt = team.reportValidated.find(q => q.questionNumber === questionNumber);
         if (existingAttempt) {
             release();
-            return res.status(400).json({ message: "This question has already been validated." });
+            return res.status(200).json({ message: "This question has already been validated." });
         }
 
         let updatedTeam = team; // Default to original team if no update occurs
