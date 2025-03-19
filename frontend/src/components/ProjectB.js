@@ -3,94 +3,75 @@ import { useNavigate } from "react-router-dom";
 import { validateProject } from "../api/projectApi";
 
 const ProjectB = () => {
-    const [showModal, setShowModal] = useState(false); // State to control modal visibility
-    const [decryptedText, setDecryptedText] = useState(""); // State for decrypted text input
-    const [error, setError] = useState(""); // State for error messages
-    const navigate = useNavigate();
+    const [showModal, setShowModal] = useState(false);
+    const [decryptedText, setDecryptedText] = useState("");
+    const [error, setError] = useState("");
     const [attempts, setAttempts] = useState(0);
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const handleDecryptProject = () => {
-        setShowModal(true); // Show the modal for decrypted text input
+        setShowModal(true);
     };
 
     const handleCloseModal = () => {
-        setShowModal(false); // Close the modal
-        setDecryptedText(""); // Reset the input field
-        setError(""); // Clear any error messages
+        setShowModal(false);
+        setDecryptedText("");
+        setError("");
+        setAttempts(0);
     };
 
-    const handleDecryptedTextSubmit= async (e) => {
+    const handleDecryptedTextSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         try {
-                    const questionId = "p2";
-                    const trimmedPassword = decryptedText.trim().toLowerCase();
-                    const username = localStorage.getItem("username");
-                    const data = { username, questionId, answer: trimmedPassword };
-        
-                    console.log("Submitting Data:", data);
-        
-                    const response = await validateProject(data);
-        
-                    if (response) {
-                        setTimeout(() => navigate("/portfolio/project-c"), 1500);
-                    } else {
-                        setError(response?.data?.message || "Incorrect password. Try again.");
-                    }
-                } catch (error) {
-                    setAttempts((prev) => prev + 1); // Correct way to update attempts
-            
-            // Check if attempts reach 5 and email ID matches a specific format
-                    if (attempts + 1 >= 5) {
-                        setError("❌ This is not the mail you are looking for!");
-                    } else {
-                        setError("⚠️ Please try again.");
-                    }
+            const questionId = "p2";
+            const trimmedPassword = decryptedText.trim().toLowerCase();
+            const username = localStorage.getItem("username");
+            const data = { username, questionId, answer: trimmedPassword };
+
+            console.log("Submitting Data:", data);
+            const response = await validateProject(data);
+
+            if (response?.success) {
+                setTimeout(() => navigate("/portfolio/project-c"), 1500);
+            } else {
+                setError(response?.message || "Incorrect password. Try again.");
+            }
+        } catch (error) {
+            setAttempts((prevAttempts) => {
+                const newAttempts = prevAttempts + 1;
+                if (newAttempts >= 5) {
+                    setError("❌ This is not the mail you are looking for!");
+                } else {
+                    setError("⚠️ Please try again.");
                 }
+                return newAttempts;
+            });
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
-        <div
-            className="p-4 min-h-screen bg-cover bg-center relative"
-            style={{
-                backgroundImage: "url('/images/portfolio8.jpg')", // Background image
-            }}
-        >
-            {/* Overlay to reduce background opacity */}
+        <div className="p-4 min-h-screen bg-cover bg-center relative" style={{ backgroundImage: "url('/images/portfolio8.jpg')" }}>
             <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-
             <div className="relative z-10">
                 <button
-                    onClick={() => navigate("/portfolio-content")} // Navigate to the portfolio content page
+                    onClick={() => navigate("/portfolio-content")}
                     className="mb-4 text-blue-500 hover:text-blue-700 focus:outline-none"
                 >
                     &larr; Back to Portfolio
                 </button>
-
-                {/* Constrain the width of this div */}
                 <div className="rounded-lg shadow p-6 mx-auto max-w-5xl w-full mt-8">
-                    {/* Image for Project Title */}
-                    <img
-                        src="/images/project-2-title.png" // Replace with your image path
-                        alt="Project B Title"
-                        className="w-full h-auto mb-8 rounded-lg shadow-lg"
-                    />
-
-                    {/* Image for Project Description */}
-                    <img
-                        src="/images/project-2-content.png" // Replace with your image path
-                        alt="Project B Description"
-                        className="w-full h-auto mb-8 rounded-lg shadow-lg"
-                    />
-
-                    {/* Decrypt Project Button */}
+                    <img src="/images/project-2-title.png" alt="Project B Title" className="w-full h-auto mb-8 rounded-lg shadow-lg" />
+                    <img src="/images/project-2-content.png" alt="Project B Description" className="w-full h-auto mb-8 rounded-lg shadow-lg" />
                     <button
                         onClick={handleDecryptProject}
                         className="mt-6 bg-blue-800 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none"
                     >
                         Decrypt Project
                     </button>
-
-                    {/* Modal for Decrypted Text */}
                     {showModal && (
                         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
                             <div className="bg-white rounded-lg shadow-2xl p-8 w-full max-w-md">
@@ -115,9 +96,10 @@ const ProjectB = () => {
                                         </button>
                                         <button
                                             type="submit"
-                                            className="bg-blue-800 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none"
+                                            className={`bg-blue-800 text-white px-4 py-2 rounded-lg focus:outline-none ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-600'}`}
+                                            disabled={loading}
                                         >
-                                            Submit
+                                            {loading ? "Submitting..." : "Submit"}
                                         </button>
                                     </div>
                                 </form>
