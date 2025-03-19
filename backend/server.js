@@ -17,9 +17,9 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:3000", // Allow requests from frontend only
+    origin: "https://silentcypher.vercel.app", // Allow requests only from your frontend
     methods: "GET,POST,PUT,DELETE",
-    credentials: true // If using cookies or authentication
+    allowedHeaders: "Content-Type,Authorization"
 }));
 
 
