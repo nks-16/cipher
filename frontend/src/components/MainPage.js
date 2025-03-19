@@ -91,21 +91,21 @@ const MainPage = () => {
                     <form onSubmit={handleSubmit}>
                         {/* Non-editable Email Input */}
                         <div className="mb-6">
-                            <label htmlFor="email" className="block text-white text-lg md:text-xl font-semibold mb-2">
+                            <label htmlFor="email" className="block text-white text-lg md:text-xl font-semibold mb-2" style={{fontFamily: "'Agency FB',sans-serif"}}>
                                 Email:
                             </label>
                             <input
                                 id="email"
                                 type="email"
                                 value={defaultEmail}
-                                className="w-full px-4 py-3 text-gray-900 bg-gray-100 border border-gray-300 rounded-lg shadow-md focus:outline-none"
+                                className="w-full px-4 py-3 text-gray-900 bg-gray-200 border border-gray-300 rounded-lg shadow-md focus:outline-none"
                                 readOnly
                             />
                         </div>
 
                         {/* Password Input */}
                         <div className="mb-6">
-                            <label htmlFor="password" className="block text-white text-lg md:text-xl font-semibold mb-2">
+                            <label htmlFor="password" className="block text-white text-lg md:text-xl font-semibold mb-2"style={{fontFamily: "'Agency FB',sans-serif"}}>
                                 Secret Code:
                             </label>
                             <input
@@ -120,15 +120,17 @@ const MainPage = () => {
                         </div>
 
                         {/* Submit Button */}
-                        <button
-                            type="submit"
-                            className={`w-full text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all transform ${
-                                isSubmitted ? "bg-gray-400 cursor-not-allowed" : "bg-blue-800 hover:bg-blue-500 hover:scale-105 active:scale-95"
-                            } focus:outline-none focus:ring-4 focus:ring-indigo-300`}
-                            disabled={isSubmitted}
-                        >
-                            {isSubmitted ? "Submitted" : "Enter"}
-                        </button>
+                        <div className="flex justify-center"> {/* Center the button */}
+                <button
+                    type="submit"
+                    className={`w-1/2 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition-all transform ${
+                        isSubmitted ? "bg-gray-400 cursor-not-allowed" : "bg-blue-800 hover:bg-blue-500 hover:scale-105 active:scale-95"
+                    } focus:outline-none focus:ring-4 focus:ring-indigo-300`}
+                    disabled={isSubmitted}
+                >
+                    {isSubmitted ? "Submitted" : "Enter"}
+                </button>
+            </div>
                     </form>
                 </div>
             </main>

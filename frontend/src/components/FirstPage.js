@@ -74,7 +74,7 @@ const FirstPage = () => {
                 <img
                     src="./images/Silent Cipher.png" // Path to your image
                     alt="Silent Cipher"
-                    className="w-64 md:w-80 mt-4" // Adjust width as needed
+                    className="w-72 md:w-96 mt-4 ml-12" // Adjust width as needed
                 />
             </div>
 

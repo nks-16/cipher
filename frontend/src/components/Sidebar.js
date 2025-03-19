@@ -25,13 +25,13 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                         <FiInbox size={20} className="mr-3" />
                         Inbox
                     </li>
-                    <li
+                    {/* <li
                         className="p-3 hover:bg-gray-700 cursor-pointer flex items-center"
                         onClick={() => navigate("/sent")}
                     >
                         <FiSend size={20} className="mr-3" />
                         Sent
-                    </li>
+                    </li> */}
                     <li
                         className="p-3 hover:bg-gray-700 cursor-pointer flex items-center"
                         onClick={() => navigate("/drafts")}

@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FirstPage from './components/FirstPage.js';
 import MainPage from './components/MainPage.js';
 import EmailPage from './components/EmailPage.js';
-import SentPage from './components/SentPage.js';
+// import SentPage from './components/SentPage.js';
 import DraftsPage from './components/DraftsPage.js';
 import EmailDetailPage from './components/EmailDetailPage.js';
 import EmailContext from "./context/EmailContext";
@@ -41,7 +41,7 @@ function App() {
             subject: "Energy Redistribution Metrics – Immediate Validation Required",
             timestamp: "30th June, 7:08 pm",
             preview: "Don't forget about the meeting tomorrow at 10 AM.",
-            cc: [],
+            cc: ["Howlen Smith"],
             body: `Ava,
 
 The <strong>latest redistribution tables</strong> have been finalised. <strong>Energy priority adjustments</strong> have been implemented per protocol.
@@ -90,7 +90,7 @@ Let's discuss this in our next checkpoint meeting.`,
             subject: "Cross-Team Collaboration - Aether Signal Stability",
             timestamp: "2nd July, 2:10 pm",
             preview: "Cross-Team Collaboration - Aether Signal Stability",
-            cc: [],
+            cc: ["Howlen Smith"],
             body: `Hey Ava, 
             
 I’ve been reviewing the latest data logs, and I need your insights on the recent fluctuations in signal transmission. The patterns we’re seeing are… unusual. At first, I assumed it was an alignment issue, but after running multiple simulations, I think something else might be at play. 
@@ -106,7 +106,7 @@ Let me know when you’re free for a quick sync.`,
             subject: "Urgent: Confidential Alignment Meeting - Mandatory Attendance",
             timestamp: "2nd July, 5:09 pm",
             preview: "Urgent: Confidential Alignment Meeting - Mandatory Attendance",
-            cc: [],
+            cc: ["Howlen Smith, David Rooster, Lili Jones."],
             body: `Dear Ava, 
 A mandatory alignment session has been scheduled for Thursday at 2200 hours in the lower-level conference room, Section 5. All Tier-3 personnel must be present. 
 
@@ -192,9 +192,9 @@ Maintain discretion in all communications regarding site changes. The transition
                 <Route path="/" element={<FirstPage />} />
                     <Route path="/main" element={<MainPage />} />
                     <Route path="/email" element={<EmailPage />} />
-                    <Route path="/sent" element={<SentPage />} />
+                    {/* <Route path="/sent" element={<SentPage />} /> */}
                     <Route path="/drafts" element={<DraftsPage />} />
-                    <Route path="/sent/:id" element={<EmailDetailPage />} />
+                    {/* <Route path="/sent/:id" element={<EmailDetailPage />} /> */}
                     <Route path="/portfolio" element={<PortfolioPasswordPage />} />
                     <Route path="/portfolio-content" element={<PortfolioContentPage />} />
                     <Route path="/portfolio/project-a" element={<ProjectA />} />
