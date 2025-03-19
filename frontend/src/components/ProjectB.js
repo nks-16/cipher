@@ -40,7 +40,7 @@ const ProjectB = () => {
                     setAttempts((prev) => prev + 1); // Correct way to update attempts
             
             // Check if attempts reach 5 and email ID matches a specific format
-                    if (attempts + 1 >= 5 && /^g[1-9]$|^g10$/.test(email.id)) {
+                    if (attempts + 1 >= 5) {
                         setError("❌ This is not the mail you are looking for!");
                     } else {
                         setError("⚠️ Please try again.");
