@@ -85,7 +85,7 @@ const FirstPage = () => {
 
                     {/* Username Input */}
                     <div className="mb-4 text-left">
-                        <label htmlFor="username" className="block text-red-500 text-sm md:text-base font-semibold mb-2">
+                        <label htmlFor="username" className="block text-red-500 text-sm md:text-base font-semibold mb-2"style={{fontFamily: "'Agency FB',sans-serif"}}>
                             Username:
                         </label>
                         <input
@@ -99,7 +99,7 @@ const FirstPage = () => {
                     </div>
 
                     <div className="mb-6 text-left">
-                        <label htmlFor="password" className="block text-red-500 text-sm md:text-base font-semibold mb-2">
+                        <label htmlFor="password" className="block text-red-500 text-sm md:text-base font-semibold mb-2"style={{fontFamily: "'Agency FB',sans-serif"}}>
                             Password:
                         </label>
                         <input
