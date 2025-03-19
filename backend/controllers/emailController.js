@@ -32,7 +32,7 @@ exports.validateEmail = async (req, res) => {
 
         if (!existingAttempt) {
             team.emailValidated.push({ questionId, validated: true });
-            team.points += 5;
+            team.points += 8;
         } else {
             existingAttempt.validated = true;
         }

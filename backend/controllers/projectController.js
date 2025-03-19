@@ -29,7 +29,7 @@ exports.validateProject = async (req, res) => {
 
         if (!existingAttempt) {
             team.projectValidated.push({ questionId, validated: true });
-            team.points += 5;
+            team.points += 13;
         } else {
             existingAttempt.validated = true;
         }

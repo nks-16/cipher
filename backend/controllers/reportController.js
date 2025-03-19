@@ -35,7 +35,7 @@ exports.validateReport = async (req, res) => {
                 { username },
                 {
                     $push: { reportValidated: { questionNumber, validated: true } },
-                    $inc: { points: 5 },
+                    $inc: { points: 2 },
                     $set: { lastSubmissionTime: new Date() }
                 },
                 { new: true }

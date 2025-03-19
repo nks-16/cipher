@@ -33,7 +33,7 @@ exports.validateDraft = async (req, res) => {
 
         if (!existingAttempt) {
             team.draftValidated.push({ questionId, validated: true });
-            team.points += 5;
+            team.points += 15;
         } else {
             existingAttempt.validated = true;
         }
