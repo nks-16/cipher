@@ -46,8 +46,6 @@ const ProjectB = () => {
                         setError("⚠️ Please try again.");
                     }
                 }
-                
-                setIsLoading(false);
             };
 
     return (
